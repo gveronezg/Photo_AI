@@ -1,0 +1,45 @@
+/* --- Project Details Traits --- */
+.project-header {
+    margin-bottom: 3rem;
+}
+
+.project-header h1 { 
+    font-size: 2.75rem; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.project-content {
+    display: grid;
+    gap: 2rem;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--accent);
+    color: white !important;
+    padding: 0.875rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.github-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.4);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .project-header h1 { font-size: 2rem; }
+    .project-content { gap: 1.5rem; }
+}

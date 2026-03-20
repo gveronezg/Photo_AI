@@ -1,0 +1,40 @@
+/* --- Home Page Traits --- */
+.hero { padding: 2rem 0 4rem; }
+
+.hero-greeting { color: var(--accent); font-weight: 500; margin-bottom: 0.75rem; display: block; }
+
+.hero h1 { 
+    font-size: 3.5rem; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description { font-size: 1.25rem; max-width: 600px; }
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.contact-item:last-child { border-bottom: none; }
+
+.contact-item svg { color: var(--accent); flex-shrink: 0; }
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .hero-description { font-size: 1.1rem; }
+    .section-grid { grid-template-columns: 1fr; }
+}

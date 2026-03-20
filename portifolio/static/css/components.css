@@ -1,0 +1,120 @@
+/* --- Header & Footer --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+}
+
+header nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+}
+
+header a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+header a:hover { color: var(--text-primary); }
+
+header a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+}
+
+header a:hover::after { width: 100%; }
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    background: var(--bg-secondary);
+}
+
+footer p { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* --- Shared UI Components --- */
+
+/* Cards (Merged .card and .info-card) */
+.card, .info-card, .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.card:hover, .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+/* Tags (Merged .skill-tag and .tech-tag) */
+.skill-tag, .tech-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.tech-tag { border-radius: 8px; }
+
+.skill-tag:hover {
+    background: var(--accent);
+    color: var(--text-primary);
+    border-color: var(--accent);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Icons & Labels */
+.card-icon, .info-card h3 svg { color: var(--accent); }
+
+.card h2, .info-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.card h2 { margin-bottom: 1.5rem; }
+
+.info-card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    header { padding: 1rem; }
+    header nav { gap: 1.5rem; }
+    .card, .info-card, .project-card { padding: 1.5rem; }
+}
