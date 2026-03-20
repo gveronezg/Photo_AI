@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
 {% block title %} Projetos | Meu Portifólio {% endblock %}
 {% block content %}
-<section>
+
+
+<section class="page-header">
     <h1>Meus Projetos</h1>
     <p>Aqui estão alguns dos projetos que desenvolvi</p>
-    <ul>
-        {% for key, datas in projetos.items %}
-        <!-- no href trago o name do url junto com o id do projeto -->
-        <li><a href="{% url 'detalhes_projeto' id_projeto=key %}">{{ datas.titulo }}</a></li>
-        {% endfor %}
-    </ul>
 </section>
+
+<div class="projects-grid">
+    {% for key, datas in projetos.items %}
+    <article class="project-card">
+        <span class="project-number">Projeto {{ forloop.counter }}</span>
+        <h3>{{ datas.titulo }}</h3>
+        <a href="{% url 'detalhes_projeto' id_projeto=key %}" class="project-link">
+            Ver detalhes
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+        </a>
+    </article>
+    {% empty %}
+    <div class="empty-state">
+        <p>Nenhum projeto encontrado.</p>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

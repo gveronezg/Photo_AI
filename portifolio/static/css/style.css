@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-card: #1a1a1a;
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1a1;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --border: #262626;
+    --radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    width: 100%;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* --- Header & Footer --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+}
+
+header nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+}
+
+header a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+}
+
+header a:hover {
+    color: var(--text-primary);
+}
+
+header a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    background: var(--bg-secondary);
+}
+
+footer p {
+    font-size: 0.85rem;
+}
+
+/* --- Shared Components --- */
+
+/* Cards (Merged .card and .info-card) */
+.card,
+.info-card,
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.card:hover,
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+/* Tags (Merged .skill-tag and .tech-tag) */
+.skill-tag,
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.tech-tag {
+    border-radius: 8px;
+}
+
+/* Small variation for project details */
+
+.skill-tag:hover {
+    background: var(--accent);
+    color: var(--text-primary);
+    border-color: var(--accent);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Icons & Labels */
+.card-icon,
+.info-card h3 svg {
+    color: var(--accent);
+}
+
+.card h2,
+.info-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.card h2 {
+    margin-bottom: 1.5rem;
+}
+
+.info-card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+/* Buttons & Special Links */
+.project-link,
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.github-link {
+    background: var(--accent);
+    color: white !important;
+    padding: 0.875rem 1.5rem;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+}
+
+.github-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.4);
+}
+
+.project-link:hover {
+    gap: 0.75rem;
+}
+
+/* --- Page Specific Traits --- */
+
+/* Home */
+.hero {
+    padding: 2rem 0 4rem;
+}
+
+.hero-greeting {
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    max-width: 600px;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-item svg {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Projects List */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-number {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Project Details */
+.project-header h1 {
+    font-size: 2.75rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-content {
+    display: grid;
+    gap: 2rem;
+}
+
+/* --- Global Media Queries --- */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    header nav {
+        gap: 1.5rem;
+    }
+
+    main {
+        padding: 2rem 1rem;
+    }
+
+    h1,
+    .hero h1,
+    .project-header h1 {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .section-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .info-card,
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    section {
+        margin-bottom: 3rem;
+    }
+}
