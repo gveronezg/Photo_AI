@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br   ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos</title>
+</head>
+
+<body>
+    <section>
+        <h1>Meus Projetos</h1>
+        <p>Aqui estão alguns dos projetos que desenvolvi</p>
+        <ul>
+            {% for key, datas in projetos.items %}
+            <!-- no href trago o name do url junto com o id do projeto -->
+            <li><a href="{% url 'detalhes_projeto' id_projeto=key %}">{{ datas.titulo }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+
+</html>
